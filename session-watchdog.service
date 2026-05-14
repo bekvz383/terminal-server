@@ -1,0 +1,14 @@
+[Unit]
+Description=VM Session Watchdog - suspend idle VMs after 5min
+After=libvirtd.service
+Requires=libvirtd.service
+
+[Service]
+Type=simple
+ExecStart=/opt/broker/session_watchdog.sh
+Restart=always
+RestartSec=10
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=KSM enable
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c "echo 1 > /sys/kernel/mm/ksm/run"
+ExecStart=/bin/bash -c "echo 1000 > /sys/kernel/mm/ksm/pages_to_scan"
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
